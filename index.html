@@ -1,43 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>html2canvas example</title>
-   <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
-    <script type="text/javascript" src="js/jspdf.js"></script>
-    <script type="text/javascript" src="libs/Deflate/adler32cs.js"></script>
-    <script type="text/javascript" src="libs/FileSaver.js/FileSaver.js"></script>
-    <script type="text/javascript" src="libs/Blob.js/BlobBuilder.js"></script>
-    <script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
-    <script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
-    <script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
-    <script type="text/javascript" src="jspdf.plugin.from_html.js"></script>
-    <script type="text/javascript" src="js/basic.js"></script>
-  <script type="text/javascript">
- $(function () 
-{
-        var doc = new jsPDF();
-        var specialElementHandlers = {
-            '#editor': function (element, renderer) {
-                return true;
-            }
-        };
-        $('#cmd').click(function () {
-            doc.fromHTML($('#content').html(), 15, 15, {
-                'width': 170,
-                    'elementHandlers': specialElementHandlers
-            });
-            doc.save('sample-file.pdf');
-        });
-    });
- </script>
-</head>
-<body id="target" >
-     <div id="content">
-         <h3>Hello, this is a H3 tag</h3>
-        <p>a pararaph</p>
-     </div>
-  <div id="editor"></div>
-  <button id="cmd">generate PDF</button>
-</body>
-</html>
+<link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+<style>
+  .red-text {
+    color: red;
+  }
+
+  h2 {
+    font-family: Lobster, Monospace;
+  }
+
+  p {
+    font-size: 16px;
+    font-family: Monospace;
+  }
+
+  .thick-green-border {
+    border-color: green;
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 50%;
+  }
+
+  .smaller-image {
+    width: 100px;
+  }
+</style>
+
+<h2 class="red-text">CatPhotoApp</h2>
+
+<p>Click here for <a href="#">cat photos</a>.</p>
+
+<a href="#"><img class="smaller-image thick-green-border" src="https://bit.ly/fcc-relaxing-cat"></a>
+
+<p>Things cats love:</p>
+<ul>
+  <li>cat nip</li>
+  <li>laser pointers</li>
+  <li>lasagna</li>
+</ul>
+<p>Top 3 things cats hate:</p>
+<ol>
+  <li>flea treatment</li>
+  <li>thunder</li>
+  <li>other cats</li>
+</ol>
+<form action="/submit-cat-photo">
+  <input type="text" placeholder="cat photo URL" required>
+  <button type="submit">Submit</button>
+  <label><input type="radio" name="indoor-outdoor">Indoor</label>
+  <label><input type="radio" name="indoor-outdoor">Outdoor</label>
+</form>
